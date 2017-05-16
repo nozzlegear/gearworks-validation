@@ -1,0 +1,134 @@
+import * as joi from 'joi';
+
+export type Schema<T> = Partial<Record<keyof T, joi.AnySchema<any>>>;
+
+/**
+ * Requires that the property is an object that matches the given schema.
+ */
+export function object<T>(obj: Schema<T>) {
+    return joi.object(obj as any as joi.SchemaMap);
+}
+
+/**
+ * Strips the property from the validated object.
+ */
+export function strip() {
+    return joi.any().strip();
+}
+
+/**
+ * Requires that the property is a boolean.
+ */
+export function boolean() {
+    const validator = joi.boolean();
+
+    return validator;
+}
+
+/**
+ * Requires that the property is a number.
+ */
+export function number() {
+    const validator = joi.number();
+
+    return validator;
+}
+
+/**
+ * Requires that the property is one of the given numbers.
+ */
+export function numbers<T extends number>(...numbers: T[]) {
+    const validator = joi.number().only(numbers);
+
+    return validator;
+}
+
+/**
+ * Requires that the property is a date.
+ */
+export function date() {
+    const validator = joi.date();
+
+    return validator;
+}
+
+/**
+ * Requires that the property is greater than the given number.
+ */
+export function gt(mustBeGreaterThan: number) {
+    const validator = joi.number().greater(mustBeGreaterThan);
+
+    return validator;
+}
+
+/**
+ * Requires that the property is greater than or equal to the given number.
+ */
+export function gte(mustBeGreaterThanOrEqualTo: number) {
+    const validator = joi.number().greater(mustBeGreaterThanOrEqualTo).allow(mustBeGreaterThanOrEqualTo);
+
+    return validator;
+}
+
+/**
+ * Requires that the property is less than the given number.
+ */
+export function lt(mustBeLessThan: number) {
+    const validator = joi.number().less(mustBeLessThan);
+
+    return validator;
+}
+
+/**
+ * Requires that the property is less than or equal to the given number.
+ */
+export function lte(mustBeLessThanOrEqualTo: number) {
+    const validator = joi.number().less(mustBeLessThanOrEqualTo).allow(mustBeLessThanOrEqualTo);
+
+    return validator;
+}
+
+/**
+ * Requires that the property is a non-empty string.
+ */
+export function string() {
+    const validator = joi.string();
+
+    return validator;
+}
+
+/**
+ * Requires that the property is a string that can be empty.
+ */
+export function stringOrEmpty() {
+    const validator = joi.string().allow("");
+
+    return validator;
+}
+
+/**
+ * Requires that the property is a string equal to one of the given strings.
+ */
+export function strings<T extends string>(...strings: T[]) {
+    const validator = joi.string().only(strings);
+
+    return validator;
+}
+
+/**
+ * Requires that the property is a string that's either empty, or equal to one of the given strings.
+ */
+export function stringsOrEmpty<T extends string>(...strings: T[]) {
+    const validator = joi.string().only(strings).allow("");
+
+    return validator;
+}
+
+/**
+ * Requires that the property is an array, with all items of the array matching with the given schema.
+ */
+export function array<T>(obj: Schema<T>) {
+    const validator = joi.array().only(obj);
+
+    return validator;
+}

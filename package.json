@@ -1,0 +1,34 @@
+{
+  "name": "gearworks-validation",
+  "version": "1.0.0",
+  "description": "A TypeScript wrapper around the Joi package, providing typed object validation for Gearworks apps. ",
+  "main": "bin/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nozzlegear/gearworks-validation.git"
+  },
+  "keywords": [
+    "gearworks",
+    "shopify",
+    "joi",
+    "validation",
+    "typings"
+  ],
+  "author": "Joshua Harms <joshua@nozzlegear.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nozzlegear/gearworks-validation/issues"
+  },
+  "homepage": "https://github.com/nozzlegear/gearworks-validation#readme",
+  "devDependencies": {
+    "@types/joi": "^10.3.2",
+    "typescript": "^2.3.2"
+  },
+  "dependencies": {
+    "joi": "^10.4.2"
+  }
+}
