@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "A TypeScript wrapper around the Joi package, providing typed object validation for Gearworks apps. ",
   "main": "bin/index.js",
+  "bin": "bin/index.js",
+  "typings": "bin/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "prepublish": "npm run build"
