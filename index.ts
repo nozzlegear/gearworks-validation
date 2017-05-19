@@ -127,8 +127,10 @@ export function onlyStringsOrEmpty<T extends string>(...strings: T[]) {
 /**
  * Requires that the property is an array, with all items of the array matching with the given schema. 
  */
-export function array<T>(obj: Schema<T>) {
-    const validator = joi.array().only(obj);
+export function array(schema: joi.AnySchema<any>): any
+export function array<T>(schema: Schema<T>): any
+export function array(schema: any): any {
+    const validator = joi.array().items(schema);
 
     return validator;
 }
