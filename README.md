@@ -33,7 +33,7 @@ const strings = require("gearworks-validation").strings;
 
 ## Usage
 
-Most of the functions are straightforward and self-explanatory. Where this package really shines is when using the functions that provide intellisense for TypeScript types: `object`, `numbers`, `strings`, `stringsOrEmpty`, and `array`.
+Most of the functions are straightforward and self-explanatory. Where this package really shines is when using the functions that provide intellisense for TypeScript types: `object`, `numbers`, `onlyStrings`, `onlyStringsOrEmpty`, and `array`.
 
 ```typescript
 import * as gwv from "gearworks-validation";
@@ -55,7 +55,7 @@ const schema = gwv.object<MyType>({
     foo: gwv.string().required(),
     bar: gwv.number(),
     baz: gwv.boolean(),
-    bat: gwv.strings<MyString>("hello", "world" /* And we have intellisense on these strings. */),
+    bat: gwv.onlyStrings<MyString>("hello", "world" /* And we have intellisense on these strings. */),
     bang: gwv.numbers<MyNumber>(1, 2, 3 /* And these numbers! */)
 })
 ```

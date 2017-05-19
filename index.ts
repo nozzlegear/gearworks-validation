@@ -107,25 +107,25 @@ export function stringOrEmpty() {
 }
 
 /**
- * Requires that the property is a string equal to one of the given strings.
+ * Requires that the property is a string equal to one of the given strings. Note: If you're trying to validate an array of strings, use the array function instead.
  */
-export function strings<T extends string>(...strings: T[]) {
+export function onlyStrings<T extends string>(...strings: T[]) {
     const validator = joi.string().only(strings);
 
     return validator;
 }
 
 /**
- * Requires that the property is a string that's either empty, or equal to one of the given strings.
+ * Requires that the property is a string that's either empty, or equal to one of the given strings. Note: If you're trying to validate an array of strings, use the array function instead.
  */
-export function stringsOrEmpty<T extends string>(...strings: T[]) {
+export function onlyStringsOrEmpty<T extends string>(...strings: T[]) {
     const validator = joi.string().only(strings).allow("");
 
     return validator;
 }
 
 /**
- * Requires that the property is an array, with all items of the array matching with the given schema.
+ * Requires that the property is an array, with all items of the array matching with the given schema. 
  */
 export function array<T>(obj: Schema<T>) {
     const validator = joi.array().only(obj);
