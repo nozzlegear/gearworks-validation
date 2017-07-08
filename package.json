@@ -7,7 +7,7 @@
   "typings": "bin/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
