@@ -10,6 +10,13 @@ export function object<T>(obj: Schema<T>) {
 }
 
 /**
+ * Matches any data type.
+ */
+export function any() {
+    return joi.any();
+}
+
+/**
  * Strips the property from the validated object.
  */
 export function strip() {
@@ -133,4 +140,13 @@ export function array(schema: any): any {
     const validator = joi.array().items(schema);
 
     return validator;
+}
+
+/**
+ * Validates an object against a schema.
+ * @param obj The object to validate.
+ * @param againstSchema The schema to validate the object against.
+ */
+export function validate<T>(obj: any, againstSchema: joi.AnySchema<any>) {
+    return joi.validate<T>(obj, againstSchema);
 }
