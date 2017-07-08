@@ -1,6 +1,6 @@
 {
   "name": "gearworks-validation",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A TypeScript wrapper around the Joi package, providing typed object validation for Gearworks apps. ",
   "main": "bin/index.js",
   "bin": "bin/index.js",
